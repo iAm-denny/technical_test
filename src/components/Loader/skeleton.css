@@ -1,0 +1,27 @@
+.skeleton_wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: #DDDBDD;
+    overflow: hidden;
+}
+
+.skeleton_wrapper::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 9999999999;
+    background-color: #f6f7f8;
+    opacity: 0.3;
+    animation: ease skeleton 2s infinite; 
+    transform: translateX(0%);
+}
+@keyframes skeleton {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform:translateX(calc(100vw - 100%));
+    }
+}

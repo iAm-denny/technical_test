@@ -1,0 +1,129 @@
+.navbar-wrapper {
+  width: 100%;
+  min-height: 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  z-index: 99999;
+}
+.navbar-wrapper.active {
+  background: rgba(30,30,30,.75);
+}
+#logo {
+  margin-left: 50px;
+}
+.menu-btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  z-index: 2;
+  margin-right: 50px;
+}
+.menu-icon {
+  width: 50px;
+  height: 3px;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+  background-color: transparent;
+}
+.menu-icon::before,
+.menu-icon::after {
+  content: "";
+  position: absolute;
+  right: 0px;
+  height: 3px;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+  transform: translateY(10px);
+  background-color: #fff;
+}
+.menu-icon::before {
+  width: 20px;
+  transform: translateY(-3px);
+}
+.menu-icon::after {
+  width: 40px;
+  transform: translateY(6px);
+}
+.menu-btn:hover .menu-icon::before {
+  width: 40px;
+}
+/* Active */
+.menu-btn.active .menu-icon::before {
+  width: 40px;
+}
+
+.menu-btn.active {
+  transform: translateX(-50px);
+}
+.menu-btn.active .menu-icon::before {
+  transform: rotate(45deg) translate(35px, -35px);
+}
+.menu-btn.active .menu-icon::after {
+  transform: rotate(-45deg) translate(35px, 35px);
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 0%;
+  height: 0%;
+  clip-path: circle(0% at 90% 40px);
+  background-color: #141414;
+  transition: all 0.3s ease;
+}
+.navbar.active {
+  width: 100%;
+  height: 100%;
+  clip-path: circle(130% at 90% 40px);
+}
+
+.navbar_items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  padding: 0px;
+}
+.navbar_items li {
+  position: relative;
+  list-style: none;
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 16px 0px;
+  cursor: pointer;
+}
+.navbar_items li a {
+  text-decoration: none;
+  color: #fff;
+}
+.navbar_items li::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #474747;
+  opacity: 0;
+  letter-spacing: 0.4em;
+  font-size: 5em;
+  z-index: -1;
+  transition: 0.3s ease;
+}
+.navbar_items li:hover::before {
+  letter-spacing: 0px;
+  opacity: 0.2;
+}

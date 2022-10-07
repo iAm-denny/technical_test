@@ -1,0 +1,18 @@
+.banner {
+    height: 100%;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  .banner_image {
+    margin: 0;
+    height: 100vh;
+  }
+.breadcrumbs {
+    color: grey;
+    font-size: 14px;
+}
+.content {
+    color: #333;
+}

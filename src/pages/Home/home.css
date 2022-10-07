@@ -1,0 +1,57 @@
+.banner {
+  height: 100%;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.canvas {
+    margin: 0;
+    height: 100vh;
+    background-color: #1a181b;
+
+  }
+  canvas {
+    display: block;
+    height: 100%;
+    animation: canvasAnimation 1.3s;
+    transition: all 0.3s ease-in-out;
+    /* background-image: url(../../assets/halloween_bg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+  }
+
+  .canvas.active canvas {
+    transform: scale(1.6);
+  }
+  
+  @keyframes canvasAnimation {
+    from {
+      scale: 0.3;
+    }
+  }
+
+  .main_title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3vw;
+    font-weight: bold;
+    color: #fff;
+    pointer-events: none;
+  }
+  .cards-grid {
+    display: grid;
+    gap: 0px;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    height: 100%;
+  }
+
+  @media only screen and (max-width: 900px) {
+    .cards-grid {
+      grid-template-columns: auto;
+    }
+  }
