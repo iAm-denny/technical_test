@@ -11,19 +11,23 @@ import Star from "../../assets/star.png";
 import Loader from "../../components/Loader/Loader";
 import { ItemContext } from "../../Context/ItemContext";
 import "./home.css";
+import IntroCircle from "./IntroCircle";
 import Services from "./Services";
 
 const Home = () => {
   const { items, setItems } = useContext(ItemContext);
   // tell to progress bar that api fetching is done.
   const [isDone, setIsDone] = useState(false);
+  const [isDoneCircleIntro, setIsDoneCircleIntro] = useState(false);
   // this will show page after progress bar animation is finished.
   const [shouldShowPage, setShouldShowPage] = useState(false);
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [skeletonLoader, setSkeletonLoader] = useState(false);
+
   const canvasRef = useRef();
   // infinite scroller
   const observer = useRef();
+
   const lastEelement = useCallback((node) => {
     if (observer.current) observer.current.disconnect();
     observer.current = new IntersectionObserver((entries) => {
@@ -160,7 +164,7 @@ const Home = () => {
 
       init();
     }
-  }, [shouldShowPage]);
+  }, [shouldShowPage, isDoneCircleIntro]);
 
   const fetchData = () => {
     fetch("https://www.wunderfauks.com/wp/wp-json/acf/v3/work")
@@ -178,13 +182,16 @@ const Home = () => {
   }, []);
 
   return (
-    <>
+    <div>
       <Loader
         isDone={isDone}
         shouldShowPage={shouldShowPage}
         setShouldShowPage={setShouldShowPage}
       />
-      {shouldShowPage && (
+      {!isDoneCircleIntro && shouldShowPage && (
+        <IntroCircle setIsDoneCircleIntro={setIsDoneCircleIntro} />
+      )}
+      {isDoneCircleIntro && shouldShowPage && (
         <>
           <div className="banner">
             <div
@@ -210,7 +217,7 @@ const Home = () => {
           </div>
         </>
       )}
-    </>
+    </div>
   );
 };
 

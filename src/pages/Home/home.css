@@ -49,9 +49,30 @@
     width: 100%;
     height: 100%;
   }
-
-  @media only screen and (max-width: 900px) {
-    .cards-grid {
-      grid-template-columns: auto;
-    }
+  .d3_dounut {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 100%;
+    height: 100%;
   }
+
+  .arc {
+    stroke: white;
+  }
+  .arc:first-child path {
+    fill: transparent !important;
+  }
+  .arc:nth-child(2) path {
+    fill: white !important;
+  }
+  .intro_circle {
+    fill: #fff;
+    font-size: 50px;
+    font-weight: bold;
+    transform: translateX(-85px);
+  }
+
+  
