@@ -11,10 +11,10 @@ const Services = (props) => {
           if (items.length === index + 1) {
             return (
               <Card
-                key={item.id}
+                key={Math.random()}
                 lastEelement={lastEelement}
                 currentCount={index + 1}
-                id={item.id}
+                id={Math.random()}
                 title={item.acf.client}
                 subtitle={item.acf.work_category}
                 banner={item.acf.image.sizes.medium_large}
@@ -23,9 +23,9 @@ const Services = (props) => {
           }
           return (
             <Card
-              key={item.id}
+              key={Math.random()}
               currentCount={index + 1}
-              id={item.id}
+              id={Math.random()}
               title={item.acf.client}
               subtitle={item.acf.work_category}
               banner={item.acf.image.sizes.medium_large}

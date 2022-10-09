@@ -37,6 +37,7 @@ const Home = () => {
       }
     });
     if (node) observer.current.observe(node);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -45,11 +46,12 @@ const Home = () => {
 
       let velocities = [];
       let accelerations = [];
+
       camera = new THREE.PerspectiveCamera(
-        75,
-        window.innerWidth / window.innerHeight,
-        0.1,
-        1000
+        75, // view angle
+        window.innerWidth / window.innerHeight, // apsect ratio
+        0.1, // near view point of camera
+        1000 // far  view point of camera
       );
 
       function init() {
@@ -71,10 +73,10 @@ const Home = () => {
         });
 
         document.querySelector(".canvas").addEventListener("mousemove", (e) => {
-          const windowHalfX = window.innerWidth / 2;
-          const windowHalfY = window.innerHeight / 2;
-          const x = (e.clientX - windowHalfX) / 5;
-          const y = (e.clientY - windowHalfY) / 5;
+          const windowHalfWidth = window.innerWidth / 2;
+          const windowHalfHeight = window.innerHeight / 2;
+          const x = (e.clientX - windowHalfWidth) / 5;
+          const y = (e.clientY - windowHalfHeight) / 5;
           camera.position.x = x;
           camera.position.y = y;
         });
@@ -179,6 +181,7 @@ const Home = () => {
   };
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

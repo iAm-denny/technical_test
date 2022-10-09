@@ -33,7 +33,6 @@ const IntroCircle = (props) => {
 
   useEffect(() => {
     const data = createPie(dataCirlce);
-    const prevData = createPie(cache.current);
     const group = d3.select(ref.current);
     const groupWithData = group.selectAll("g.arc").data(data);
 
@@ -48,9 +47,9 @@ const IntroCircle = (props) => {
       .append("path")
       .merge(groupWithData.select("path.arc"));
 
-    const arcTween = (d, i) => {
-      const interpolator = d3.interpolate(prevData[i], d);
-      return (t) => createArc(interpolator(t));
+    const arcTween = (data) => {
+      // create donut chart
+      return (t) => createArc(data);
     };
 
     path
@@ -65,6 +64,7 @@ const IntroCircle = (props) => {
 
     setX(rootSVGSize.width / 2);
     setY(rootSVGSize.height / 2);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dataCirlce]);
 
   const calculateDataForNormal = () => {
@@ -134,7 +134,7 @@ const IntroCircle = (props) => {
       animateNormal();
       window.addEventListener("keydown", (e) => {
         setFastAnimation(true);
-        if (e.keyCode === 32) {
+        if (e.code === "Space") {
           return animateFast();
         } else {
           setFastAnimation(false);
@@ -146,6 +146,7 @@ const IntroCircle = (props) => {
         return animateNormal();
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [doneAnimate]);
 
   useEffect(() => {
@@ -187,6 +188,7 @@ const IntroCircle = (props) => {
         opacity: 0,
         onComplete: () => props.setIsDoneCircleIntro(true),
       });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
