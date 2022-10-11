@@ -14,7 +14,7 @@ const Services = (props) => {
                 key={Math.random()}
                 lastEelement={lastEelement}
                 currentCount={index + 1}
-                id={Math.random()}
+                id={item.id}
                 title={item.acf.client}
                 subtitle={item.acf.work_category}
                 banner={item.acf.image.sizes.medium_large}
@@ -25,7 +25,7 @@ const Services = (props) => {
             <Card
               key={Math.random()}
               currentCount={index + 1}
-              id={Math.random()}
+              id={item.id}
               title={item.acf.client}
               subtitle={item.acf.work_category}
               banner={item.acf.image.sizes.medium_large}

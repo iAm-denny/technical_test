@@ -4,10 +4,6 @@ import Loader from "../../components/Loader/Loader";
 import { ItemContext } from "../../Context/ItemContext";
 import "./work.css";
 
-const bannerImageStyle = {
-  backgroundRepeat: "no-repeat",
-};
-
 const Work = () => {
   const [isDone, setIsDone] = useState(false);
   // this will show page after progress bar animation is finished.
@@ -24,6 +20,7 @@ const Work = () => {
         setIsDone(true);
       }, 1000);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   return (

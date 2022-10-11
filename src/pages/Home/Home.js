@@ -7,7 +7,6 @@ import React, {
 } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
-import Star from "../../assets/star.png";
 import Loader from "../../components/Loader/Loader";
 import { ItemContext } from "../../Context/ItemContext";
 import "./home.css";
@@ -56,14 +55,11 @@ const Home = () => {
 
       function init() {
         scene = new THREE.Scene();
-        camera.position.z = 1;
-        camera.rotation.x = Math.PI / 2;
 
         renderer = new THREE.WebGLRenderer();
 
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setClearColor("#1a181b");
-        // renderer.setClearColor(0x000000, 0); //remove bacgkround color
         canvasRef.current.appendChild(renderer.domElement);
 
         window.addEventListener("resize", () => {
@@ -82,11 +78,9 @@ const Home = () => {
         });
 
         controls = new OrbitControls(camera, renderer.domElement);
-        controls.target.set(0, 0.1, 0);
         controls.minDistance = 200;
         controls.maxDistance = 1000;
         controls.enableZoom = false;
-        controls.screenSpacePanning = true;
         controls.mouseButtons = {
           LEFT: "",
           MIDDLE: "",
@@ -111,11 +105,9 @@ const Home = () => {
           new THREE.Float32BufferAttribute(vertices, 3)
         );
 
-        let sprite = new THREE.TextureLoader().load(Star);
         const starMaterial = new THREE.PointsMaterial({
-          color: 0xffffff,
+          color: "#fff",
           size: 2,
-          map: sprite,
         });
 
         stars = new THREE.Points(starGeo, starMaterial);
