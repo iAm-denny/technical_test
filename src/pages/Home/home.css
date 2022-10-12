@@ -81,3 +81,8 @@
 .text_3 {
     transform: translateX(-68px);
   }
+  .warning-text {
+    fill: rgb(179, 179, 179);
+    text-transform: uppercase;
+    font-size: 14px;
+  }

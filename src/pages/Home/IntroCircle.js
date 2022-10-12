@@ -206,6 +206,12 @@ const IntroCircle = (props) => {
           <text className="intro_circle text_2">Welcome!!!</text>
           <text className="intro_circle text_3"> That's all!</text>
         </g>
+        <g
+          transform={`translate(${x - 135}, ${y + 200})`}
+          className="warning-text"
+        >
+          <text>Press Space to speed up</text>
+        </g>
       </svg>
     </div>
   );
