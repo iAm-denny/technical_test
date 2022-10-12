@@ -201,10 +201,10 @@ const IntroCircle = (props) => {
     <div style={{ background: "#000", width: "100%", height: "100vh" }}>
       <svg preserveAspectRatio="xMinYMin" className="d3_dounut">
         <g ref={ref} transform={`translate(${x - 50}, ${y})`} />
-        <g transform={`translate(${x - 90}, ${y})`} ref={textRef}>
-          <text className="intro_circle text_1">Heyyyyyyy</text>
+        <g transform={`translate(${x - 100}, ${y})`} ref={textRef}>
+          <text className="intro_circle text_1">Hello</text>
           <text className="intro_circle text_2">Welcome!!!</text>
-          <text className="intro_circle text_3">That's all!</text>
+          <text className="intro_circle text_3"> That's all!</text>
         </g>
       </svg>
     </div>

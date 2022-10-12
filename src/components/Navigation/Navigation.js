@@ -37,7 +37,7 @@ export const Navigation = ({ children }) => {
                 Home
               </Link>
             </li>
-            <li data-text="About">Services</li>
+            <li data-text="Services">Services</li>
           </ul>
         </nav>
       </div>

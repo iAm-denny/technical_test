@@ -16,9 +16,6 @@ const Work = () => {
     if (id) {
       const findItem = items.find((item) => item.id === parseInt(id));
       setData(findItem);
-      setTimeout(() => {
-        setIsDone(true);
-      }, 1000);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
@@ -29,6 +26,16 @@ const Work = () => {
         isDone={isDone}
         shouldShowPage={shouldShowPage}
         setShouldShowPage={setShouldShowPage}
+      />
+      <img
+        src={data?.acf?.image?.sizes["1536x1536"]}
+        onLoad={() => {
+          setTimeout(() => {
+            setIsDone(true);
+          }, 1000);
+        }}
+        style={{ display: "none" }}
+        alt="banner"
       />
       {shouldShowPage && (
         <>

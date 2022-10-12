@@ -196,11 +196,9 @@ const Home = () => {
               onMouseUp={() => setIsMouseDown(false)}
             ></div>
             <div className="main_title">
+              Welcome
+              <br />
               it is what it is.
-              <br />
-              Hheheheh
-              <br />
-              Hheheheh
             </div>
           </div>
           <div style={{ background: "#ffff", position: "relative", zIndex: 2 }}>

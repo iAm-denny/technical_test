@@ -74,5 +74,10 @@
     font-weight: bold;
     transform: translateX(-85px);
   }
+.text_1 {
 
-  
+  transform: translateX(-15px);
+}
+.text_3 {
+    transform: translateX(-68px);
+  }
